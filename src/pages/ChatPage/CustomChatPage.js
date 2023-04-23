@@ -120,9 +120,10 @@ export const CustomChatPage = () => {
     function maskEmail(email) {
         const atIndex = email.indexOf('@');
         const username = email.slice(0, atIndex);
-        if(username.length<7 ) return username;
-        const firstThree = username.slice(0, 3);
-        const lastThree = username.slice(-3);
+        const upUsername= username.charAt(0).toUpperCase() + username.slice(1);
+        if(upUsername.length<7 ) return upUsername;
+        const firstThree = upUsername.slice(0, 3);
+        const lastThree = upUsername.slice(-3);
         const maskedUsername = `${firstThree}...${lastThree}`;
         const domain = email.slice(atIndex);
         const maskedEmail = `${maskedUsername}${domain}`;
@@ -151,7 +152,7 @@ export const CustomChatPage = () => {
                                             </div>
                                             <div className='ch_user_info'>
                                                 <div className='name_time'>
-                                                    <span className='ch_username'>{maskEmail(user.email)}</span>
+                                                    <span className='ch_username '>{maskEmail(user.email)}</span>
                                                 </div>
                                                 <p>9:40 PM</p>
                                             </div>

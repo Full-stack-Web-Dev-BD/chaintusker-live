@@ -47,6 +47,9 @@ export const NavbarTop = () => {
             <Nav.Link as={Link} to="/platform">
               Platform
             </Nav.Link>
+            <Nav.Link as={Link} to="/chat">
+              Messages
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <Button
