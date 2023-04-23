@@ -136,7 +136,7 @@ export const CustomChatPage = () => {
             <Container className='my-5'>
                 {/*  A row with search bar made using react-bootstrap and filter button */}
                 <div className='cu_toggle' style={{ display: isSmDevice() ? 'block' : 'none' }}>
-                    <h6> <MdMessage onClick={handleClick} /> Chat </h6>
+                    <h6  onClick={handleClick}> <MdMessage /> Chat </h6>
                 </div>
                 <Row className='my-3 g-md-4 g-2 chat_wrapper'>
                     <Col style={blockStyle} sm={4} className='chat_userlist_wrapper'>
