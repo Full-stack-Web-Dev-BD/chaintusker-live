@@ -47,9 +47,6 @@ export const NavbarTop = () => {
             <Nav.Link as={Link} to="/platform">
               Platform
             </Nav.Link>
-            <Nav.Link as={Link} to="/chat">
-              Messages
-            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <Button
@@ -88,6 +85,9 @@ export const NavbarTop = () => {
               <li>
                 <Link to="/profile/1" className="dropdown-item">
                   Profile
+                </Link>
+                <Link to="/chat" className="dropdown-item">
+                  Message
                 </Link>
               </li>
               <li onClick={logoutMagic}>

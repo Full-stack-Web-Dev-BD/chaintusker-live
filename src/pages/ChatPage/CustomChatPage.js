@@ -37,7 +37,7 @@ export const CustomChatPage = () => {
     }, [currentChat])
     const getHistory = async () => {
         const response = await axios.post(`${ChatBaseURL}/api/messages/getmsg`, {
-            from: selfData._id,
+            from: selfData?._id,
             to: currentChat._id,
         });
         setMessages(response.data);
@@ -55,7 +55,7 @@ export const CustomChatPage = () => {
     useEffect(() => {
         if (selfData) {
             socket.current = io(ChatBaseURL);
-            socket.current.emit("add-user", selfData._id);
+            socket.current.emit("add-user", selfData?._id);
             socket.current.on("test", (data) => {
                 console.log(data)
             })
@@ -88,11 +88,11 @@ export const CustomChatPage = () => {
     const handleSendMsg = async (msg) => {
         socket.current.emit("send-msg", {
             to: currentChat._id,
-            from: selfData._id,
+            from: selfData?._id,
             msg,
         });
         await axios.post(`${ChatBaseURL}/api/messages/addmsg`, {
-            from: selfData._id,
+            from: selfData?._id,
             to: currentChat._id,
             message: msg,
         });
@@ -143,7 +143,7 @@ export const CustomChatPage = () => {
                         <div className="template_card chat_user_list chatbox_height ptb_30">
                             <div className='ch_userlist_inner'>
                                 {contacts.map((user) => (
-                                    user.email !== selfData.email && (
+                                    user.email !== selfData?.email && (
                                         <div className='single_chat_user' key={user._id} onClick={e => handleClick(user)}>
                                             <div className='ch_pp'>
                                                 <div className='latterpp'>
@@ -152,7 +152,7 @@ export const CustomChatPage = () => {
                                             </div>
                                             <div className='ch_user_info'>
                                                 <div className='name_time'>
-                                                    <span className='ch_username '>{maskEmail(user.email)}</span>
+                                                    <span className='ch_username '>{maskEmail(user?.email)}</span>
                                                 </div>
                                                 <p>9:40 PM</p>
                                             </div>
