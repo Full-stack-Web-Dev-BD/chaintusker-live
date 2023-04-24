@@ -211,7 +211,7 @@ export const CustomChatPage = () => {
                                     </> :
                                     <div className='select_start_chat text-center'>
                                         <img src='/img/chat.png' alt='img' />
-                                        <p>Select a conversation and chat away.</p>
+                                        <p>Select a conversation and start chat</p>
                                     </div>
                             }
                         </div>
